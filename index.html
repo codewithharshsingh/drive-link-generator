@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drive Link Generator</title>
+    <link rel="stylesheet" href="style.css?v=final-100vh" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1 class="header-title">Google Drive Direct Download Link Generator</h1>
+      <div class="theme-switch-wrapper">
+        <label
+          for="themeToggle"
+          class="themeToggle st-sunMoonThemeToggleBtn"
+          type="checkbox"
+        >
+          <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            stroke="none"
+          >
+            <mask id="moon-mask">
+              <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+              <circle
+                class="moonMaskCircle"
+                cx="11"
+                cy="3"
+                r="8"
+                fill="black"
+              ></circle>
+            </mask>
+            <circle
+              class="sunMoon"
+              cx="10"
+              cy="10"
+              r="8"
+              mask="url(#moon-mask)"
+            ></circle>
+            <g>
+              <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+              <circle
+                class="sunRay sunRay2"
+                cx="14"
+                cy="16.928"
+                r="1.5"
+              ></circle>
+              <circle
+                class="sunRay sunRay3"
+                cx="6"
+                cy="16.928"
+                r="1.5"
+              ></circle>
+              <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+              <circle
+                class="sunRay sunRay5"
+                cx="6"
+                cy="3.1718"
+                r="1.5"
+              ></circle>
+              <circle
+                class="sunRay sunRay6"
+                cx="14"
+                cy="3.1718"
+                r="1.5"
+              ></circle>
+            </g>
+          </svg>
+        </label>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="left">
+        <img
+          src="assets/images/google-drive-icon.png"
+          alt="Google Drive Icon"
+          class="logo"
+        />
+      </section>
+
+      <section class="right">
+        <div class="generation-box">
+          <p>Generate Direct Download Link</p>
+          <div class="input-process">
+            <label for="driveLink">Paste Google Drive Link:</label>
+            <input
+              type="text"
+              id="driveLink"
+              placeholder="e.g., https://drive.google.com/file/d/FILE_ID/view?usp=sharing"
+            />
+            <a class="generate" id="generateButton" onclick="generateLink()">
+              <span class="button-text">Generate Link</span>
+              <div class="loader-spinner"></div>
+            </a>
+          </div>
+
+          <div class="output-process">
+            <label for="outputLink">Your Download Link:</label>
+            <input
+              type="text"
+              id="outputLink"
+              readonly
+              placeholder="The link will appear here..."
+            />
+            <a class="copy-btn" onclick="copyToClipboard()">Copy</a>
+          </div>
+          <p id="statusMessage"></p>
+        </div>
+      </section>
+    </main>
+
+    <section class="info-section how-it-works-section">
+      <div class="info-content">
+        <h2>How It Works:</h2>
+        <ul>
+          <li>
+            <strong>Paste Your Google Drive Link:</strong> Copy the shareable
+            link of your file from Google Drive.
+          </li>
+          <li><strong>Generate:</strong> Click the "Generate Link" button.</li>
+          <li>
+            <strong>Download:</strong> Get your direct download link, ready to
+            share or use!
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="info-section why-use-section">
+      <div class="info-content">
+        <h2>Why Use Our Generator?</h2>
+        <div class="reason-list">
+          <div class="reason-item">
+            <h3>Instant Downloads:</h3>
+            <p>Bypass Google Drive's preview page.</p>
+          </div>
+          <div class="reason-item">
+            <h3>Easy Sharing:</h3>
+            <p>Share direct links with anyone.</p>
+          </div>
+          <div class="reason-item">
+            <h3>No Login Required:</h3>
+            <p>Use our tool without needing to sign in.</p>
+          </div>
+          <div class="reason-item">
+            <h3>Secure & Private:</h3>
+            <p>We don't store your links or files.</p>
+          </div>
+          <div class="reason-item">
+            <h3>Free to Use:</h3>
+            <p>Generate as many links as you need, completely free!</p>
+          </div>
+          <div class="reason-item">
+            <h3>No Ads or Popups:</h3>
+            <p>Enjoy a clean, distraction-free experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section faq-section">
+      <div class="info-content">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h3>Q: What is a direct download link?</h3>
+          <p>
+            A: A direct download link allows you to download a file instantly
+            without being redirected to the Google Drive preview page.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Q: Is it safe to use this generator?</h3>
+          <p>
+            A: Yes, it's completely safe. We don't store your Google Drive links
+            or files.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Q: Do I need a Google account to use this?</h3>
+          <p>
+            A: No, you do not need to log in or connect your Google account.
+            Just provide the shareable link.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Q: My link isn't working. What should I do?</h3>
+          <p>
+            A: Ensure your Google Drive file's sharing settings are set to
+            "Anyone with the link" (Public).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <footer class="page-footer">
+      <p>© 2025 Developed by Harsh Singh.</p>
+    </footer>
+  </body>
+</html>
